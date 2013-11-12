@@ -17,6 +17,7 @@ CAeroDlg::CAeroDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CAeroDlg::IDD, pParent)
 {
 
+
 }
 
 CAeroDlg::~CAeroDlg()
