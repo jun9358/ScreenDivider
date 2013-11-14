@@ -5,6 +5,8 @@
 #include "stdafx.h"
 #include "ScreenDivider.h"
 #include "ScreenDividerDlg.h"
+#include "AeroDlg.h"
+#include "EditorDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -66,6 +68,7 @@ CScreenDividerApp::CScreenDividerApp()
 
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
+	//InstallHook();
 }
 
 
@@ -104,7 +107,28 @@ BOOL CScreenDividerApp::InitInstance()
 	// such as the name of your company or organization
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 
-	CScreenDividerDlg dlg;
+	/*
+	CAeroDlg dlg;
+	m_pMainWnd = &dlg;
+	INT_PTR nResponse = dlg.DoModal();
+	if (nResponse == IDOK)
+	{
+		// TODO: Place code here to handle when the dialog is
+		//  dismissed with OK
+	}
+	else if (nResponse == IDCANCEL)
+	{
+		// TODO: Place code here to handle when the dialog is
+		//  dismissed with Cancel
+	}
+
+	// Delete the shell manager created above.
+	if (pShellManager != NULL)
+	{
+		delete pShellManager;
+	}
+	*/
+	CEditorDlg dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
