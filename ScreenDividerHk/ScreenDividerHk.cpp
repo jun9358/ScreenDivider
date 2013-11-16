@@ -44,11 +44,14 @@ extern "C"
 
 	__declspec(dllexport) BOOL RefreshSDForm(TCHAR strSDFormPath[MAX_PATH])
 	{
+		// Because this part is C type part,
+		// variables should be declared in top.
 		BOOL isSuccess = TRUE;
+		CFile fileSDForm;
+		CFileStatus statusSDForm;
 		BOOL ret;
 
 		// Open file
-		CFile fileSDForm;
 		ret = fileSDForm.Open(strSDFormPath, CFile::modeReadWrite);
 		if (ret == 0)
 		{
@@ -57,7 +60,6 @@ extern "C"
 		}
 
 		// Get file status
-		CFileStatus statusSDForm;
 		ret = fileSDForm.GetStatus(statusSDForm);
 		if (ret == FALSE)
 		{
@@ -66,18 +68,13 @@ extern "C"
 		}
 
 		// Refresh g_timeLastModified
-		//g_timeLastModified = statusSDForm.m_mtime;
+		g_timeLastModified = statusSDForm.m_mtime;
 
 		// Check new file is
 		if (fileSDForm.GetFilePath().Compare(g_strSDFormPath) != 0)
 		{
 			// If new file, initialize some datas.
 			wsprintf(g_strSDFormPath, fileSDForm.GetFilePath());
-			
-			CString strRet;
-			strRet.Format(L"%s\n", g_strSDFormPath);
-			OutputDebugString(strRet;)
-
 			g_timeLastRefresh = 0;
 		}
 
@@ -120,18 +117,12 @@ LRESULT WINAPI CallWndProc(int nCode, WPARAM wParam, LPARAM lParam)
 				break;
 			}
 
-			/*
 			if (g_timeLastRefresh < g_timeLastModified)
 			{
 				// Reload data
 				OutputDebugString(L"WOW!\n");
 			}
-			*/
 
-			// Print current mouse position to debug output
-			CString strRet;
-			strRet.Format(L"%s\n", g_strSDFormPath);
-			OutputDebugString(strRet);
 			break;
 		}
 		break;

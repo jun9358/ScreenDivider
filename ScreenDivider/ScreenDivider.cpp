@@ -113,7 +113,7 @@ CScreenDividerApp::CScreenDividerApp()
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
 	InstallHook();
-	if (!RefreshSDForm(L"D:\\BackUp\\USB Backup\\ENDIANS.c"))
+	if (!RefreshSDForm(L"D:\\Toolbar256.bmp"))
 	{
 		OutputDebugString(L"Refresh error\n");
 	}
