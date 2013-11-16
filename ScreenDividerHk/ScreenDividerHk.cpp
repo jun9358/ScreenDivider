@@ -80,6 +80,7 @@ LRESULT WINAPI CallWndProc(int nCode, WPARAM wParam, LPARAM lParam)
 				if (isInTitleBar == FALSE)
 				{
 					isInTitleBar = TRUE;
+					wsprintf(g_strSDFormPath, L"!!!\n");
 					OutputDebugString(L"Show aero window\n");
 				}
 			}
@@ -89,9 +90,7 @@ LRESULT WINAPI CallWndProc(int nCode, WPARAM wParam, LPARAM lParam)
 			}
 
 			// Print current mouse position to debug output
-			CString strRet;
-			strRet.Format(L"%u %u\n", point.x, point.y);
-			//OutputDebugString(strRet);
+			OutputDebugString(g_strSDFormPath);
 			break;
 		}
 		break;
