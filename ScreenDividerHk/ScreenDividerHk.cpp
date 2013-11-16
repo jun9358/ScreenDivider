@@ -15,6 +15,7 @@ CScreenDividerHkApp theApp;
 LRESULT WINAPI CallWndProc(int nCode, WPARAM wParam, LPARAM lParam);
 
 // Global variables
+CTime g_timeLastRefresh;
 HHOOK g_hHook;
 BOOL isInTitleBar;
 
@@ -38,6 +39,51 @@ extern "C"
 		g_hHook = hHook;
 
 	EXIT:
+		return isSuccess;
+	}
+
+	__declspec(dllexport) BOOL RefreshSDForm(TCHAR strSDFormPath[MAX_PATH])
+	{
+		BOOL isSuccess = TRUE;
+		BOOL ret;
+
+		// Open file
+		CFile fileSDForm;
+		ret = fileSDForm.Open(strSDFormPath, CFile::modeReadWrite);
+		if (ret == 0)
+		{
+			isSuccess = FALSE;
+			goto EXIT;
+		}
+
+		// Get file status
+		CFileStatus statusSDForm;
+		ret = fileSDForm.GetStatus(statusSDForm);
+		if (ret == FALSE)
+		{
+			isSuccess = FALSE;
+			goto EXIT;
+		}
+
+		// Refresh g_timeLastModified
+		//g_timeLastModified = statusSDForm.m_mtime;
+
+		// Check new file is
+		if (fileSDForm.GetFilePath().Compare(g_strSDFormPath) != 0)
+		{
+			// If new file, initialize some datas.
+			wsprintf(g_strSDFormPath, fileSDForm.GetFilePath());
+			
+			CString strRet;
+			strRet.Format(L"%s\n", g_strSDFormPath);
+			OutputDebugString(strRet;)
+
+			g_timeLastRefresh = 0;
+		}
+
+	EXIT:
+		fileSDForm.Close();
+
 		return isSuccess;
 	}
 }
@@ -74,23 +120,18 @@ LRESULT WINAPI CallWndProc(int nCode, WPARAM wParam, LPARAM lParam)
 				break;
 			}
 
-			if ((point.x < 100 && point.y < 100) ||
-				(point.x < 100 && 50 < point.y))
+			/*
+			if (g_timeLastRefresh < g_timeLastModified)
 			{
-				if (isInTitleBar == FALSE)
-				{
-					isInTitleBar = TRUE;
-					wsprintf(g_strSDFormPath, L"!!!\n");
-					OutputDebugString(L"Show aero window\n");
-				}
+				// Reload data
+				OutputDebugString(L"WOW!\n");
 			}
-			else
-			{
-				isInTitleBar = FALSE;
-			}
+			*/
 
 			// Print current mouse position to debug output
-			OutputDebugString(g_strSDFormPath);
+			CString strRet;
+			strRet.Format(L"%s\n", g_strSDFormPath);
+			OutputDebugString(strRet);
 			break;
 		}
 		break;

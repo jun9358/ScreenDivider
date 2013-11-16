@@ -10,8 +10,8 @@
 #include "resource.h"		// main symbols
 
 #pragma data_seg(".SHARE")
-	BOOL g_isRefreshed = FALSE;
-	TCHAR g_strSDFormPath[MAX_PATH] = L"\n";
+	TCHAR g_strSDFormPath[MAX_PATH] = L"";
+	//CTime g_timeLastModified = 0;
 #pragma data_seg()
 #pragma comment(linker, "/SECTION:.SHARE,RWS")
 
