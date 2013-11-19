@@ -18,4 +18,12 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
 	DECLARE_MESSAGE_MAP()
+public:
+	CListCtrl m_List;
+	afx_msg void OnLvnItemchangedList1(NMHDR *pNMHDR, LRESULT *pResult);
+	virtual BOOL OnInitDialog();
+private:
+//	unsigned int m_uiSettingSub;
+public:
+	afx_msg void OnBnClickedButton1();
 };

@@ -115,7 +115,7 @@ BOOL CScreenDividerApp::InitInstance()
 	dlgSettingStyle.Create(IDD_SETTING_STYLE_DIALOG);
 	dlgSettingStyle.ShowWindow(TRUE);
 
-	CSettingGeneralDlg dlgSettingGeneral;
+	CSettingDlg dlgSettingGeneral;
 	m_pMainWnd = &dlgSettingGeneral;
 	INT_PTR nResponse = dlgSettingGeneral.DoModal();
 	if (nResponse == IDOK)
