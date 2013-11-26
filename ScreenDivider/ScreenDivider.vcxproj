@@ -178,6 +178,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
+<<<<<<< HEAD
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\cursor1.cur" />
+=======
     <None Include="res\EXIT.bmp" />
     <None Include="res\EXIT_DISABLED.bmp" />
     <None Include="res\EXIT_HOVER.bmp" />
@@ -193,6 +197,7 @@
     <None Include="res\MIN_SEL.bmp" />
     <None Include="res\FINDER.bmp" />
     <None Include="res\FINDER.cur" />
+>>>>>>> pr/3
     <None Include="res\ScreenDivider.ico" />
     <None Include="res\ScreenDivider.rc2" />
   </ItemGroup>
