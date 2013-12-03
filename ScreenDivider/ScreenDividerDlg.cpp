@@ -356,7 +356,7 @@ LRESULT CScreenDividerDlg::OnSDCreateWindow(WPARAM wParam, LPARAM lParam)
 	else
 	{
 		CSDWindow curSDWindow;
-		curSDWindow = m_sdForm.GetSDWindow(lParam);
+		curSDWindow = m_sdForm.GetSDWindow((LONG)lParam);
 
 		// Create new aero dialog
 		CAeroDlg *pDlgAero;

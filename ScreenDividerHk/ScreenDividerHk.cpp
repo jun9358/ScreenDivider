@@ -230,7 +230,7 @@ LRESULT WINAPI CallWndProc(int nCode, WPARAM wParam, LPARAM lParam)
 				);
 
 				// Modify style like maximized
-				LONG style;
+				LONG_PTR style;
 				style = GetWindowLongPtr(pCwpParam->hwnd, GWL_STYLE);
 				style |= WS_MAXIMIZE;
 				SetWindowLongPtr(pCwpParam->hwnd, GWL_STYLE, style);
