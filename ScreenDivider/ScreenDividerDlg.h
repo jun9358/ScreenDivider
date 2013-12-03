@@ -1,30 +1,43 @@
-
 // ScreenDividerDlg.h : header file
 //
+
 
 #pragma once
 #include "EditorDlg.h"
 #include "SettingDlg.h"
 #include "AeroDlg.h"
 
+
 // CScreenDividerDlg dialog
 class CScreenDividerDlg : public CDialogEx
 {
 // Construction
 public:
-	CScreenDividerDlg(CWnd* pParent = NULL);	// standard constructor
+        CScreenDividerDlg(CWnd* pParent = NULL);        // standard constructor
+
 
 // Dialog Data
-	enum { IDD = IDD_SCREENDIVIDER_DIALOG };
+        enum { IDD = IDD_SCREENDIVIDER_DIALOG };
 
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
+
+        protected:
+        virtual void DoDataExchange(CDataExchange* pDX);        // DDX/DDV support
+
+
 
 
 // Implementation
 protected:
-	HICON m_hIcon;
-	NOTIFYICONDATA m_nid;
+        HICON m_hIcon;
+        NOTIFYICONDATA m_nid;
+
+
+        CEditorDlg m_dlgEditor;
+        CSettingDlg m_dlgSetting;
+        CString m_strSDFormPath;
+        CSDForm m_sdForm;
+        BOOL m_isHooked;
+        CArray<CAeroDlg *> m_arrAeroDlg;
 
 // Child dialogs
 private:
