@@ -3,9 +3,12 @@
 ScreenDivider2 is an monitor divider that divide any size user want.
 
 ## System requirements
+
 ScreenDivider2 is known to compile and pass its test suite on:
+
 * Windows7 systems with aero effect
 * Visual Studio 2010
+
 ScreenDivider2 work on same architecture only. For example, 'ScreenDivider32.exe' only work on x86 system.
 
 ## Facilities
