@@ -22,8 +22,6 @@ ScreenDivider2 work on same architecture only. For example, 'ScreenDivider32.exe
 * Draw some virtual window to use fitting real window.
 * Save the form and exit Editor.
 * Click right mouse button to open tray menu and click Open menu.
-
 * Click and move real window to caption bar in virtual window drew before.
-
 * If aero window is activated, release mouse.
 * Then, you can see real window that fit virtual window.
